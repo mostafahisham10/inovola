@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'coffee.apps.CoffeeConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +56,7 @@ ROOT_URLCONF = 'inovola_task.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [Path.joinpath(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -74,11 +76,15 @@ WSGI_APPLICATION = 'inovola_task.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+    "default": {
+        "ENGINE": "djongo",
+        "NAME": "inovola",
+        "CLIENT": {
+            "host": "mongodb+srv://inovola:Password1@testcluster1.ci1rv.mongodb.net/inovola?retryWrites=true&w=majority",
+            "username": "inovola",
+            "password": "Password1",
+        },
+    }}
 
 
 # Password validation
@@ -118,3 +124,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    Path.joinpath(BASE_DIR, "static")
+]

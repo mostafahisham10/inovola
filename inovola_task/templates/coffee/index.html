@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inovola Task</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row text-center">
+            <div class="col-lg-12">
+                <h1 class="display-4">Welcome</h1>
+            </div>
+        </div>
+    </div>
+    <div class="cotainer-fluid">
+        <div class="row">
+            <div class="col-lg-6 machine-screen mb-3 mt-3">
+                <div class="row text-center">
+                    <div class="col-lg-12">
+                        <h1 class="display-5">Coffee Machines</h1>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="sel1">Type:</label>
+                    <select class="form-control" id="sel1">
+                        <option>Large coffee machine</option>
+                        <option>Small coffee machine</option>
+                        <option>Espresso machine</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="sel1">Water line:</label>
+                    <select class="form-control" id="sel1">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                </div>
+                <input id="form-button" class="btn btn-success btn-block" type="submit" value="Continue">
+            </div>
+            <div class="col-lg-6 pod-screen mb-3 mt-3">
+                <div class="row text-center">
+                    <div class="col-lg-12">
+                        <h1 class="display-5">Coffee pods</h1>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="sel1">Type:</label>
+                    <select class="form-control" id="sel1">
+                        <option>Large coffee pod</option>
+                        <option>Small coffee pod</option>
+                        <option>Espresso pod</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="sel1">Flavor:</label>
+                    <select class="form-control" id="sel1">
+                        <option>Vanilla</option>
+                        <option>Caramel</option>
+                        <option>PSL</option>
+                        <option>Mocha</option>
+                        <option>Hazelnut</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="sel1">Size:</label>
+                    <select class="form-control" id="sel1">
+                        <option>1 dozen (12)</option>
+                        <option>3 dozen (36)</option>
+                        <option>5 dozen (60)</option>
+                        <option>7 dozen (84)</option>
+                    </select>
+                </div>
+                <input id="form-button" class="btn btn-success btn-block" type="submit" value="Continue">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
