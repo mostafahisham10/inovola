@@ -1,7 +1,5 @@
 from django.db import models
 
-# Create your models here.
-
 
 class Machine(models.Model):
     title = models.CharField(max_length=10, blank=True, null=True)
