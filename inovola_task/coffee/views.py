@@ -4,13 +4,12 @@ from rest_framework.response import Response
 from .serializers import MachineSerializer, PodSerializer
 from .models import Machine, Pod
 
-# Create your views here.
-
 
 def index(request):
     return render(request, "coffee/index.html")
 
 
+# Overview for the rest api
 @api_view(["GET"])
 def apiOverview(request):
     api_urls = {
@@ -26,6 +25,7 @@ def apiOverview(request):
     return Response(api_urls)
 
 
+# Filter machines by all categories
 @api_view(['GET'])
 def machineDetail(request, pk1, pk2, pk3):
     machines = Machine.objects.filter(types=pk1, model=pk2, is_water=pk3)
@@ -33,6 +33,7 @@ def machineDetail(request, pk1, pk2, pk3):
     return Response(serializer.data)
 
 
+# Filter machines by product type
 @api_view(['GET'])
 def machineType(request, pk):
     machines = Machine.objects.filter(types=pk)
@@ -40,6 +41,7 @@ def machineType(request, pk):
     return Response(serializer.data)
 
 
+# Filter machines by model
 @api_view(['GET'])
 def machineModel(request, pk):
     machines = Machine.objects.filter(model=pk)
@@ -47,6 +49,7 @@ def machineModel(request, pk):
     return Response(serializer.data)
 
 
+# Filter machines by water line compatibility
 @api_view(['GET'])
 def machineWater(request, pk):
     machines = Machine.objects.filter(is_water=pk)
@@ -54,6 +57,7 @@ def machineWater(request, pk):
     return Response(serializer.data)
 
 
+# Filter pods by all categories
 @api_view(['GET'])
 def podDetail(request, pk1, pk2, pk3):
     pods = Pod.objects.filter(types=pk1, flavor=pk2, size=pk3)
@@ -61,6 +65,7 @@ def podDetail(request, pk1, pk2, pk3):
     return Response(serializer.data)
 
 
+# Filter pods by product type
 @api_view(['GET'])
 def podType(request, pk):
     pods = Pod.objects.filter(types=pk)
@@ -68,6 +73,7 @@ def podType(request, pk):
     return Response(serializer.data)
 
 
+# Filter pods by flavor
 @api_view(['GET'])
 def podFlavor(request, pk):
     pods = Pod.objects.filter(flavor=pk)
@@ -75,6 +81,7 @@ def podFlavor(request, pk):
     return Response(serializer.data)
 
 
+# Filter pods by size
 @api_view(['GET'])
 def podSize(request, pk):
     pods = Pod.objects.filter(size=pk)
