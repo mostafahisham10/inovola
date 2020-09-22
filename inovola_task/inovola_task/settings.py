@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'coffee.apps.CoffeeConfig',
     'rest_framework',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
