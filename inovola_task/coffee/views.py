@@ -3,6 +3,8 @@ from django.views.generic import TemplateView
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.generics import ListAPIView
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
 from django_filters.rest_framework import DjangoFilterBackend
 from .serializers import MachineSerializer, PodSerializer
 from .models import Machine, Pod
@@ -18,7 +20,7 @@ class ApiOverview(APIView):
     def get(self, request):
         api_urls = {
             'Machine List': 'api/machine-list/',
-            'Pod List': 'api/pod-detail/',
+            'Pod List': 'api/pod-list/',
         }
         return Response(api_urls)
 
@@ -28,8 +30,10 @@ class MachineList(ListAPIView):
 
     queryset = Machine.objects.all()
     serializer_class = MachineSerializer
-    filter_backends = (DjangoFilterBackend,)
-    filter_fields = ("types", "model", "is_water")
+    filter_backends = [DjangoFilterBackend]
+    filter_fields = ["types", "model", "is_water"]
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
 
 
 # Filter pods by all categories
@@ -37,5 +41,7 @@ class PodList(ListAPIView):
 
     queryset = Pod.objects.all()
     serializer_class = PodSerializer
-    filter_backends = (DjangoFilterBackend,)
-    filter_fields = ("types", "flavor", "size")
+    filter_backends = [DjangoFilterBackend]
+    filter_fields = ["types", "flavor", "size"]
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
